@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1 style="text-align: center;">Our Department Page</h1>
+    <hr>
+    {% for i in dept %}
+        <div style="text-align: center; margin-left: 200px; width: 70%; height: fit-content; background:gray">
+            <h1 style="color:black; padding-top: 20px;">{{ i.deptname }}</h1>
+            <p style="color:black; padding-top: 10px;">{{ i.description }}</p>
+        </div><br>
+    {% endfor %}
+{% endblock %}

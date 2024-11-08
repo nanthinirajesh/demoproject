@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container w-50 text-center p-3 my-5" style="background-color: gray; border-radius: 8px;">
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <!-- {{ form }} -->
+      {{ form|crispy}}
+
+        <br>
+        <button class="btn btn-primary mb-4" type="submit" style="background-color: bisque; border-color:bisque; color:black;">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

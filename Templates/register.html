@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            background-color: #e0e0e0;
+            width: 350px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #4a4a4a;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .instructions {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #4a4a4a;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+        .footer-text {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        .footer-text a {
+            color: #333;
+            text-decoration: none;
+        }
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <p class="instructions">Required. 150 characters or fewer. Letters, digits, and @/./+/-/_ only.</p>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <p class="instructions">
+                • Your password can't be too similar to your other personal information.<br>
+                • Must contain at least 8 characters.<br>
+                • Can't be a commonly used password.<br>
+                • Can't be entirely numeric.
+            </p>
+
+            <label for="password_confirmation">Password Confirmation:</label>
+            <input type="password" id="password_confirmation" name="password_confirmation" required>
+            <p class="instructions">Enter the same password as before, for verification.</p>
+
+            <label for="email">Email address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="first_name">First name:</label>
+            <input type="text" id="first_name" name="first_name">
+
+            <label for="last_name">Last name:</label>
+            <input type="text" id="last_name" name="last_name">
+
+            <input type="submit" value="Register">
+            <p class="footer-text">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </form>
+    </div>
+</body>
+</html>
